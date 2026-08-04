@@ -48,9 +48,9 @@ $qtdCritica = 5; //mínimo necessário no estoque
 
 <?php 
     if ($qtdEmEstoque < $qtdCritica) {
-       echo "<p>È necessário comprar/repor</p>";
+       echo "<p class=\"comprar\">È necessário comprar/repor</p>";
     } else {
-       echo "<p>Estoque normal.</p>";
+       echo "<p class=\"normal\">Estoque normal.</p>";
     }
 ?>
 </body>
