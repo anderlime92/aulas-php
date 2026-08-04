@@ -29,8 +29,26 @@
     if ($numero > 10):
         echo "<p>$numero é maior que 10.</p>";
     endif;
-
     ?>
+
+    <hr>
+
+    <h2>Condicional COMPOSTA: <code>if/else</code></h2>
+<?php 
+$produto = "Ultrabook";
+$qtdEmEstoque = 30; // o que temos a disposição
+$qtdCritica = 5; //mínimo necessário no estoque
+?>
+    <h3><?= $produto ?></h3>
+    <p><b>Quantidade em estoque: </b><?= $qtdEmEstoque ?></p>
+
+<?php 
+    if ($qtdEmEstoque < $qtdCritica) {
+       echo "<p>È necessário comprar/repor</p>";
+    } else {
+       echo "<p>Estoque normal.</p>";
+    }
+?>
 </body>
 
 </html>
