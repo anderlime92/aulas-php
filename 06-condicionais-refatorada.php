@@ -25,9 +25,9 @@
     <?php
     $numero = 50;
     if ($numero > 10) {
-    ?>    
+    ?>
         <p><?= $numero ?> é maior que 10.</p>
-    <?php    
+    <?php
     }
     ?>
 
@@ -36,7 +36,7 @@
     <h2>Condicional COMPOSTA: <code>if/else</code></h2>
     <?php
     $produto = "Ultrabook";
-    $qtdEmEstoque = 30; // o que temos a disposição
+    $qtdEmEstoque = 0; // o que temos a disposição
     $qtdCritica = 5; //mínimo necessário no estoque
     ?>
     <h3><?= $produto ?></h3>
@@ -44,23 +44,19 @@
 
     <?php
     if ($qtdEmEstoque < $qtdCritica) {
-        echo "<p class=\"comprar\">È necessário comprar/repor</p>";
-
-        // condicional ANINHADA (ela está dentro de outro if)
+    ?>
+        echo <p class="comprar">È necessário comprar/repor</p>
+        <?php
         if ($qtdEmEstoque === 0) {
-            echo "<p><mark class=\"comprar\">🚨URGENTE!</mark></p>";
+        ?>
+            <p><mark class="comprar">🚨URGENTE!</mark></p>
+        <?php
         }
     } else {
-        echo "<p class=\"normal\">Estoque normal.</p>";
+        ?>
+        <p class="normal">Estoque normal.</p>
+    <?php
     }
-
-    // if/else versão abreviada (shorthand if) ?:
-    $excessoDeEstoque = $qtdEmEstoque > 100 ? "sim" : "não";
-    echo $excessoDeEstoque;
-
-    echo "<br>";
-
-    echo $qtdEmEstoque > 100 ? "sim" : "não";
     ?>
 
     <hr>
