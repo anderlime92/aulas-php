@@ -80,22 +80,21 @@
 
     <h3>Usando os comandos <code>switch/case/default/break</code></h3>
     <?php
-    /* Protótipo de chatbot
-Opções: 1 (informações), 2 (reclamação), 3 (elogio), 4 e outros números (inválida) */
-    $opcao = 1; // entrada simulada
+    /*  */
+    $opcao = 1;
 
     switch ($opcao) {
         case 1:
-            echo "<p>Legal, o que quer saber?</p>";
+            $texto = "Legal, o que quer saber?";
             break;
         case 2:
-            echo "<p>Que pena, o que houve?</p>";
+            $texto = "Que pena, o que houve?";
             break;
         case 3:
-            echo "<p>Que bacana, pode falar!</p>";
+            $texto = "Que bacana, pode falar!";
             break;
         default:
-            echo "<p>Não entendi.... vou chamar alguém";
+            $texto = "Não entendi.... vou chamar alguém";
             break;
     }
     ?>
