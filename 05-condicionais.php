@@ -57,13 +57,32 @@
 
         // condicional ANINHADA (ela está dentro de outro if)
         if ($qtdEmEstoque === 0) {
-            echo "<p><mark class=\"comprar\">🧯URGENTE!</mark></p>";
+            echo "<p><mark class=\"comprar\">🚨URGENTE!</mark></p>";
         }
     } else {
         echo "<p class=\"normal\">Estoque normal.</p>";
     }
     ?>
+
+    <hr>
+
+    <h2>Condicional ENCADEADA: <code>if, elseif, else</code></h2>
+    <?php
+    $idade = 15;
+    $situacao = ""; // opcional (nem é obrigatório declarar previamente)
+
+    if ($idade <= 12) {
+        $situacao = "criança";
+    } elseif ($idade <= 17) {
+        $situacao = "adolescente";
+    } elseif ($idade <= 59) {
+        $situacao = "adulto";
+    } else {
+        $situacao = "idoso";
+    }
+    ?>
+    <p>O usuário tem <?= $idade ?> anos e é <?= $situacao ?>.</p>
+
 </body>
-<mark></mark>
 
 </html>
