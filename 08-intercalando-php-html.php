@@ -16,7 +16,7 @@
     const ESCOLA = "Senac Penha";
 
     echo "<p>O aluno se chama $aluno</p>";
-    echo "<p><p></p>  " . ESCOLA . "</p>";
+    echo "<p>Ele estuda na escola  " . ESCOLA . "</p>";
     ?>
 
     <h2>Usando PHP intercalando com HTML</h2>
