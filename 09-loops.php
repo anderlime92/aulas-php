@@ -52,14 +52,16 @@
 
     <section>
         <h3>Conteúdo da seção/FAQ (Perguntas frequentes)</h3>
-        <?php for ($i=1; $i <=5 ; $i++) { // ou : ?>
-        <details>
-            <summary>Pergunta <?= $i ?></summary>
-            <p>Resposta <?= $i ?></p>
-        </details>
-        <?php } // ou endfor; ?>
+        <?php for ($i = 1; $i <= 5; $i++) { // ou : 
+        ?>
+            <details>
+                <summary>Pergunta <?= $i ?></summary>
+                <p>Resposta <?= $i ?></p>
+            </details>
+        <?php } // ou endfor; 
+        ?>
     </section>
-    
+
 
 </body>
 
