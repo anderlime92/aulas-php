@@ -28,17 +28,39 @@
 
     <h2>Usando o PHP intercalando comandos com HTML</h2>
 
-    <?php $idade = 25; ?> <!-- PHP onde preciso --> 
+    <?php $idade = 25; ?> <!-- PHP onde preciso -->
 
-    <?php 
+    <?php
     if ($idade >= 18) {
-        echo "<p><b>$aluno</b> é maior de idade</p>"; 
+        echo "<p><b>$aluno</b> é maior de idade</p>";
     } else {
         echo "<p><i>$aluno</i> é menor de idade</p>";
     }
     ?>
 
-    <h3>Resultado:</h3>
+    <h3>Resultado: </h3>
+    <?php
+    if ($idade >= 18) :
+    ?>
+        <p><b><?= $aluno ?></b> é maior de idade</p>
+    <?php
+    else:
+    ?>
+        <p><i>$aluno</i> é menor de idade</p>
+    <?php endif; ?>
+    <!-- Lembrete, pode-se trocar as chaves {}  por dois pontos :  e finalizar com  endif;  -->
+
+    <h3>Resultado (refatorado)</h3>
+    <?php 
+    if ($idade >= 18) {
+        $htmlSaida = "<b>$aluno</b>";
+        $palavra = "maior";
+    } else {
+        $htmlSaida = "<i>$aluno</i>";
+        $palavra = "menor";
+    }
+    ?>
+    <p> <?= $htmlSaida ?> é <?= $palavra ?> de idade</p>
 </body>
 
 </html>
