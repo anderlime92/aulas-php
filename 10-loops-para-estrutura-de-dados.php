@@ -12,6 +12,17 @@
     <div class="container">
         <h1>Loops e dados para estruturas de dados</h1>
         <hr>
+
+    <?php 
+    $meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    ?>  
+    
+    <h2>Usando o loop for para acessar o array</h2>
+    <ol>
+        <?php for ($i=0; $i < count($meses); $i++) { ?>
+            <li> <?= $meses[$i] ?> </li>
+        <?php } ?>
+    </ol>
     </div>
 
     
