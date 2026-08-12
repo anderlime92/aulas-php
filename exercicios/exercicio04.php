@@ -9,8 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <style>
-        tr:nth-child(3) {
-            background-color: red !important;
+        /*tr { background-color: palevioletred ; }*/
+
+        /*Para estilizar as células de uma determinada linha*/
+        tr:nth-child(3) td {
+            background-color: darkslategrey!important;
+        }
+        tr:nth-child(4) td {
+            text-decoration-line: underline;
         }
     </style>
 
