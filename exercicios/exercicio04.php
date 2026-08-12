@@ -12,44 +12,45 @@
 
 <body>
     <h1>Linguagens de programação</h1>
-    <?php
-    $linguagens = ["HTML", "CSS", "JS", "PHP", "SQL"]
-    ?>
-    <ol>
-        <?php for ($i = 0; $i < count($linguagens); $i++) { ?>
-            <li> <?= $linguagens[$i] ?> </li>
-        <?php } ?>
-    </ol>
 
     <?php $linguagens = [
     [
-    "id" => "1",
-    "nome" => "HTML",
-    "descrição" => "Estruturação"
+    "Id" => "1",
+    "Nome" => "HTML",
+    "Descrição" => "Estruturação"
     ],
     [
-    "id" => "2",
-    "nome" => "CSS",
-    "descrição" => "Estilos"
+    "Id" => "2",
+    "Nome" => "CSS",
+    "Descrição" => "Estilos"
     ],
     [
-    "id" => "3",
-    "nome" => "JS",
-    "descrição" => "Comportamentos"
+    "Id" => "3",
+    "Nome" => "JS",
+    "Descrição" => "Comportamentos"
     ],
     [
-    "id" => "4",
-    "nome" => "PHP",
-    "descrição" => "Back-End"
+    "Id" => "4",
+    "Nome" => "PHP",
+    "Descrição" => "Back-End"
     ],
     [
-    "id" => "5",
-    "nome" => "SQL",
-    "descrição" => "Manipulação de Dados"
+    "Id" => "5",
+    "Nome" => "SQL",
+    "Descrição" => "Manipulação de Dados"
     ],
     ]; ?>
     
-
+    <ol>
+        <?php foreach ($linguagens as $linguagem):
+                
+        ?>
+            <p><b>Id:</b> <span class="bg-primary-subtle p-1"> <?= $linguagem["Id"] ?></span></p>
+            <p><b>Nome:</b> <span class="bg-dark-subtle p-1"> <?= $linguagem["Nome"] ?></span></p>
+            <p><b>Descrição:</b> <span class="bg-primary-subtle p-1"> <?= $linguagem["Descrição"] ?></span></p>
+        
+        <?php endforeach; ?>
+    </ol>
 
 
     <table class="table table-dark table-striped">
