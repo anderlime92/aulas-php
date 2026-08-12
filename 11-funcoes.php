@@ -78,6 +78,36 @@
 
     <h2>Função com indução de tipos de dados</h2>
     <p>Nesta abordagem, definimos tipos de dados para os parâmetros e para o retorno da função.</p>
+    <?php 
+    function verificarNegativo(int $valor):string {
+        if ($valor < 0) return "é negativo";
+        return "não é negativo";
+    }
+    ?>
+    <p>Número 10: <?= verificarNegativo(10) ?></p>
+    <p>Número -10: <?= verificarNegativo(-10) ?></p>
+    
+    <!-- exclua/ou comente Após o teste: -->
+    <!-- <p>Teste para erro: < ?= verificarNegativo("teste") ?></p> -->
+
+    <hr>
+
+    <h2>Função anônima (ou lambda)</h2>
+    <?php // SEMPRE DECLARE primeiro a função ANTES de chamar
+    $multiplicar = function(float $valor1, float $valor2):float {
+        return $valor1 * $valor2;
+    };
+    ?>
+    <!-- Repare no uso do $ junto com o nome da função:  -->
+    <p>Exemplo: <?= $multiplicar(10, 2) ?></p>
+
+    <hr>
+
+    <h2>Arrow Function</h2>
+    <?php //Repare que omitimos as chaves e o return
+    $subtrair = fn(float $valor1, float $valor2):float => $valor1 - $valor2;
+    ?>
+    <p>Exemplo: <?= $subtrair(10, 1) ?></p>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
