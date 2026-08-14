@@ -35,10 +35,60 @@
         // Procurando por UMA palavra e substituindo por outra
 
         $frasesComSubstituicaoDePalavra = str_replace("bobo", "cara legal", $frase);
+
+        // Procurando por uma LISTA de palavras e substituindo por outra coisa
+        $fraseCensurada = str_ireplace(
+        ["panaca", "burro", "idiota", "chato", "bobão", "bobo", "BOBÃO"],                 
+        "Ç",
+        $frase
+        );
         ?>
 
         <p><mark>Frase original: <?= $frase ?></mark></p>
         <p>Frase com subtituição de palavra: <?= $frasesComSubstituicaoDePalavra ?></p>
+
+        <h2>strip_tags()</h2>
+        <?php 
+        $codigoHTML = "<h3>HTML5 - <a href='http://sp.senac.br'>Senac</a> </h3>";
+        $textoSemTags = strip_tags($codigoHTML);
+        ?>
+
+        <div>
+            <?= $codigoHTML ?>
+            <?= $textoSemTags ?>
+        </div>
+
+        <h2>trim()</h2>
+        <?php 
+        $textoComEspaçosAdicionais = " Curso de PHP ";
+        $textoSemEspacos = trim($textoComEspaçosAdicionais);
+
+        $textoComQuebras = "n\n texto qualquer e etc e tal"; // API
+        $textoSemQuebras = trim($textoComQuebras);
+        ?>  
+
+        <pre><?php var_dump($textoComEspaçosAdicionais) ?></pre>
+        <pre><?php var_dump($textoSemEspacos) ?></pre>
+        <br><br>
+        <pre><?php var_dump($textoComQuebras) ?></pre>
+        <pre><?php var_dump($textoSemQuebras) ?></pre>
+
+        <h2>nl2br()</h2>
+        <?php 
+        $textoContendoQuebras = "A vida é feita de escolhas \n e a cada decisão, uma nova jornada começa. \n Às vezes, o caminho parece claro, \n mas em outras, a névoa da dúvida nos envolve. \n Mesmo assim, é importante seguir em frente. \n A coragem está em continuar, \n mesmo quando as respostas não são evidentes. \n Aprendemos com os erros e acertos, \n e cada experiência nos molda para o que está por vir. \n O segredo é nunca parar de caminhar.";
+        ?>
+
+        <p><?= $textoContendoQuebras ?></p>
+        <p><?= nl2br($textoContendoQuebras) ?></p>
+        <!-- a função pega as "quebras" com \n e transforma em <br> para o HTML -->
+
+        <h2>explode()</h2>
+        <?php 
+        $linguagens = "HTML, CSS, JavaScript, PHP, SQL, Python, C#, Java";
+        $arrayLinguagens = explode(", ", $linguagens);
+        ?>
+        <pre><?php var_dump($linguagens) ?></pre>
+        <pre><?php var_dump($arrayLinguagens) ?></pre>
         
     </div>
 
