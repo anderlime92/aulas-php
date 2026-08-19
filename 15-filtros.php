@@ -39,6 +39,42 @@
             <a href="<?= $redeSocial ?>" class="btn btn-info">Me siga agora</a>
         <?php endif; ?>
 
+        <hr>
+
+        <h2>Sanitização</h2>
+        <h3>FILTER_SANITIZE_EMAIL</h3>
+        <?php 
+        $contato = "/tiago.bsantos @sp.;senac.br ( >";
+        $contatoSanitizado = filter_var($contato, FILTER_SANITIZE_EMAIL);
+        ?>
+        <p>Contato <b>sem</b> sanitização: <?= $contato ?></p>
+        <p>Contato <b>com</b> sanitização: <?= $contatoSanitizado ?></p>
+
+        <h3>FILTER_SANITIZE_FULL_SPECIAL_CHARS</h3>
+        <?php 
+        // Simulando um entrada de dados de código HTML
+        $nomeCompleto = "<img src='https://www.jetbrains.com/pt-br/phpstorm/>'";
+
+        $nomeCompletoSanitizado = filter_var(
+            $nomeCompleto, FILTER_SANITIZE_FULL_SPECIAL_CHARS
+        );
+        ?>
+        <p>Nome informado: <?= $nomeCompletoSanitizado ?></p>
+
+        <?php 
+        // Simulando de um ataque de injeção de código JS (XSS - Cross Site Scripting)
+        $ataqueXSS = "<script>location = 'pudding.org'</script>";
+        ?>
+        <p>Teste: <?= filter_var($ataqueXSS, FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?></p>
+
+        <h3>htmlspecialchars()</h3>
+        <?php 
+        $nomeCompletoCorrigido = htmlspecialchars($nomeCompleto);
+        $ataqueEvitado = htmlspecialchars($ataqueXSS);
+        ?>
+        <p>Nome completocorrigido: <?= $nomeCompletoCorrigido ?></p>
+        <p>Ataque evitado: <?= $ataqueEvitado ?></p>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
