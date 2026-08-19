@@ -1,4 +1,5 @@
-<?php include "recursos.php"; ?>
+<?php require "recursos.php"; ?>
+<!--  include -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,7 +28,7 @@
 
             <ul>
                 <?php foreach ($tecnologias as $tecnologia): ?>
-                    <li><?php $tecnologia ?></li>
+                    <li><?= $tecnologia ?></li>
                 <?php endforeach; ?>
             </ul>
         </section>
