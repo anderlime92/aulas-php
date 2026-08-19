@@ -29,7 +29,7 @@
         <?php endif; ?>
 
         <h3>FILTER_VALIDATE_URL</h3>
-        <?php 
+        <?php
         $redeSocial = "pudim.com";
         $redeSocialValida = filter_var($redeSocial, FILTER_VALIDATE_URL);
         ?>
@@ -43,7 +43,7 @@
 
         <h2>Sanitização</h2>
         <h3>FILTER_SANITIZE_EMAIL</h3>
-        <?php 
+        <?php
         $contato = "/tiago.bsantos @sp.;senac.br ( >";
         $contatoSanitizado = filter_var($contato, FILTER_SANITIZE_EMAIL);
         ?>
@@ -51,29 +51,61 @@
         <p>Contato <b>com</b> sanitização: <?= $contatoSanitizado ?></p>
 
         <h3>FILTER_SANITIZE_FULL_SPECIAL_CHARS</h3>
-        <?php 
+        <?php
         // Simulando um entrada de dados de código HTML
         $nomeCompleto = "<img src='https://www.jetbrains.com/pt-br/phpstorm/>'";
 
         $nomeCompletoSanitizado = filter_var(
-            $nomeCompleto, FILTER_SANITIZE_FULL_SPECIAL_CHARS
+            $nomeCompleto,
+            FILTER_SANITIZE_FULL_SPECIAL_CHARS
         );
         ?>
         <p>Nome informado: <?= $nomeCompletoSanitizado ?></p>
 
-        <?php 
+        <?php
         // Simulando de um ataque de injeção de código JS (XSS - Cross Site Scripting)
         $ataqueXSS = "<script>location = 'pudding.org'</script>";
         ?>
         <p>Teste: <?= filter_var($ataqueXSS, FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?></p>
 
         <h3>htmlspecialchars()</h3>
-        <?php 
+        <?php
         $nomeCompletoCorrigido = htmlspecialchars($nomeCompleto);
         $ataqueEvitado = htmlspecialchars($ataqueXSS);
         ?>
         <p>Nome completocorrigido: <?= $nomeCompletoCorrigido ?></p>
         <p>Ataque evitado: <?= $ataqueEvitado ?></p>
+
+        <h3>FILTER_SANITIZE_NUMBER_INT</h3>
+        <?php
+        $idade = "Tenho 15 anos";
+        $idade = filter_var($idade, FILTER_SANITIZE_NUMBER_INT);
+        ?>
+        <p>Idade: <?= $idade ?></p>
+
+        <h3>FILTER_SANITIZE_NUMBER_FLOAT</h3>
+        <?php
+        $precoInicial = "R$ 1000.78";
+        $desconto = "R$ 500.30";
+
+        $precoInicial = filter_var(
+            $precoInicial,
+            FILTER_SANITIZE_NUMBER_FLOAT,
+            FILTER_FLAG_ALLOW_FRACTION
+        );
+
+        $desconto = filter_var(
+            $desconto,
+            FILTER_SANITIZE_NUMBER_FLOAT,
+            FILTER_FLAG_ALLOW_FRACTION
+        );
+
+        $precoFinal = $precoInicial - $desconto;
+        ?>
+
+        <p>Preço inicial: <?= $precoInicial ?></p>
+        <p>Desconto de: <?= $desconto ?></p>
+        <p>Preço final: <?= $precoFinal ?></p>
 
     </div>
 
