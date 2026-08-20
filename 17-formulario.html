@@ -24,37 +24,41 @@
             <label for="idade">Idade:</label>
             <input type="number" name="idade" id="idade" min="0" max="130">
         </div>
-        <div>
-            <p>Interesses: </p>
-            <div>
-                <input type="checkbox" name="interesses" id="html">
-                <label for="html">HTML</label>
+        <div class="mb-3">
+            <p class="mb-2">Interesses: </p>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interesses" id="html">
+                <label for="html" class="form-check-label">HTML</label>
             </div>
-            <div>
-                <input type="checkbox" name="interesses" id="css">
-                <label for="css">CSS</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interesses" id="css">
+                <label for="css" class="form-check-label">CSS</label>
             </div>
-            <div>
-                <input type="checkbox" name="interesses" id="javascript">
-                <label for="javascript">JavaScript</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interesses" id="javascript">
+                <label for="javascript" class="form-check-label">JavaScript</label>
             </div>
-            <div>
-                <input type="checkbox" name="interesses" id="php">
-                <label for="php">PHP</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interesses" id="php">
+                <label for="php" class="form-check-label">PHP</label>
             </div>
-            <div>
-                <p>Deseja receber informativos?</p>
-                <div>
-                    <input type="radio" name="informativos" id="sim">
-                    <label for="sim">SIM</label>
+            <div class="mb-3">
+                <p class="mb-2">Deseja receber informativos?</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="informativos" id="sim">
+                    <label for="sim" class="form-check-label">SIM</label>
                 </div>
-                <div>
-                    <input type="radio" name="informativos" id="nao">
-                    <label for="nao">Não</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="informativos" id="nao">
+                    <label for="nao" class="form-check-label">Não</label>
                 </div>
             </div>
-            <hr>
         </div>
+        <div class="mb-3">
+            <label for="mensagem" class="form-label">Mensagem</label>
+            <textarea class="form-control" name="mensagem" id="mensagem" rows="6"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar dados</button>
     </form>
 </div>
 
