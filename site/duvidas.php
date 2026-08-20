@@ -11,7 +11,7 @@
     <p>Anderson</p>
 </details>
 <details>
-    <summary>Lorem ipsum ~</summary>
+    <summary><b>Lorem ipsum ~</b></summary>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro dolor, corrupti dolorum blanditiis error omnis quaerat. Aspernatur quos quo minima eligendi eaque! Corrupti ducimus autem eius quisquam ullam, libero voluptates.</p>
 </details>
 
