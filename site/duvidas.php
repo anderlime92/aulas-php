@@ -10,5 +10,9 @@
     <summary>Quem vai pagar umas paçocas?</summary>
     <p>Anderson</p>
 </details>
+<details>
+    <summary>Lorem ipsum ~</summary>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro dolor, corrupti dolorum blanditiis error omnis quaerat. Aspernatur quos quo minima eligendi eaque! Corrupti ducimus autem eius quisquam ullam, libero voluptates.</p>
+</details>
 
 <?php require "includes/rodape.php" ?>
