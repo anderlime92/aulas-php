@@ -74,7 +74,22 @@
 
             /* Validações (campos obrigatórios) */
 
-            
+            if (empty($nome)) $erros[] = "O campo nome é obrigatório";
+            if (empty($email)) $erros[] = "O e-mail de ser informado";
+            if (empty($mensagem)) $erros[] = "Você deve escrever uma mensagem";
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $erros[] = "O e-mail não é válido";
+
+            $filtroIdade = [
+                "options" => [
+                    "min_range" => 0,
+                    "max_range" => 130,
+                ]
+            ];
+
+            if (!filter_var($idade, FILTER_VALIDATE_INT, $filtroIdade)) {
+                $erros[] = "Idade inválida. A idade deve estar entre 0 e 130";
+            }
 
             if (!empty($erros)):
         ?>
