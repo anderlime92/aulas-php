@@ -18,45 +18,48 @@
 
         /* var_dump($_POST); */
         /* var_dump($_GET); */
-        
-        //Verificando se houve uma requisição POST
-        if( $_SERVER["REQUEST_METHOD"] === "POST") {
 
-        // Capturando os dados de cada campo
-        $nome = $_POST["nome"];
-        $email = $_POST["email"];
-        $idade = $_POST["idade"];
-        $mensagem = $_POST["mensagem"];
+        // Verificando se houve uma requisição POST
+        // lista de possíveis encontrados ao longo do processamento
+        $erros = [];
 
-        /* Operador ?? -> coalescência nula - Caso nenhum interesse seja selecionado, a variável guardará um array vazio */
-        $interesses = $_POST["interesses"] ?? []; // array
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-        //Caso nenhuma opção seja selecionada, o valor "nao" fica como padrão
-        $informativos = $_POST["informativos"] ?? "nao";
+            // Capturando e sanitizando/limpando os dados de cada campo
+            $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            $idade = filter_input(INPUT_POST, 'idade', FILTER_SANITIZE_NUMBER_INT);
+            $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            /* Operador ?? -> coalescência nula - Caso nenhum interesse seja selecionado, a variável guardará um array vazio */
+            $interesses = $_POST["interesses"] ?? []; // array
+
+            //Caso nenhuma opção seja selecionada, o valor "nao" fica como padrão
+            $informativos = $_POST["informativos"] ?? "nao";
         ?>
 
-        <h2>Dados recebidos</h2>
-        <p>Nome: <?= $nome ?></p>
-        <p>E-mail: <?= $email ?></p>
-        <p>Idade: <?= $idade ?></p>
-        <p>Mensagem: <?= $mensagem ?></p>
+            <h2>Dados recebidos</h2>
+            <p>Nome: <?= $nome ?></p>
+            <p>E-mail: <?= $email ?></p>
+            <p>Idade: <?= $idade ?></p>
+            <p>Mensagem: <?= $mensagem ?></p>
 
-        <?php if (!empty($interesses)): ?>
-            <p>Interesses: <?= implode(",", $interesses) ?></p>
-        <?php endif; ?>
+            <?php if (!empty($interesses)): ?>
+                <p>Interesses: <?= implode(",", $interesses) ?></p>
+            <?php endif; ?>
 
-        <p>Informativos: <?= $informativos === 'sim' ? "Sim" : "Não" ?></p>
-        <?php 
+            <p>Informativos: <?= $informativos === 'sim' ? "Sim" : "Não" ?></p>
+        <?php
         } else {
         ?>
-        <!-- Acesso inválido (usuário não veio do formulário) -->
-         <div class="alert alert-danger">
-            <h2>Acesso inválido!</h2>
-            <p>Você deve usar o formulário para enviar os dados.</p>
-            <hr>
-            <a href="17-formulario.html" class="btn btn-primary">Ir para o formulário.</a>
-         </div>
-        <?php 
+            <!-- Acesso inválido (usuário não veio do formulário) -->
+            <div class="alert alert-danger">
+                <h2>Acesso inválido!</h2>
+                <p>Você deve usar o formulário para enviar os dados.</p>
+                <hr>
+                <a href="17-formulario.html" class="btn btn-primary">Ir para o formulário.</a>
+            </div>
+        <?php
         }
         ?>
     </div>
