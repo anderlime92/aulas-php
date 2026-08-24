@@ -18,9 +18,10 @@
 
         /* var_dump($_POST); */
         /* var_dump($_GET); */
-        ?>
+        
+        //Verificando se houve uma requisição POST
+        if( $_SERVER["REQUEST_METHOD"] === "POST") {
 
-        <?php
         // Capturando os dados de cada campo
         $nome = $_POST["nome"];
         $email = $_POST["email"];
@@ -45,6 +46,19 @@
         <?php endif; ?>
 
         <p>Informativos: <?= $informativos === 'sim' ? "Sim" : "Não" ?></p>
+        <?php 
+        } else {
+        ?>
+        <!-- Acesso inválido (usuário não veio do formulário) -->
+         <div class="alert alert-danger">
+            <h2>Acesso inválido!</h2>
+            <p>Você deve usar o formulário para enviar os dados.</p>
+            <hr>
+            <a href="17-formulario.html" class="btn btn-primary">Ir para o formulário.</a>
+         </div>
+        <?php 
+        }
+        ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
