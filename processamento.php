@@ -13,6 +13,9 @@
         <h1>Recebimento e processamento dos dados</h1>
         <hr>
         <?php
+        /* $_POST e $_GET
+        Arrays superglobais que possuem os dados enviados a partir de formulários e/ou links dinâmicos. */
+
         /* var_dump($_POST); */
         /* var_dump($_GET); */
         ?>
@@ -30,6 +33,7 @@
         //Caso nenhuma opção seja selecionada, o valor "nao" fica como padrão
         $informativos = $_POST["informativos"] ?? "nao";
         ?>
+
         <h2>Dados recebidos</h2>
         <p>Nome: <?= $nome ?></p>
         <p>E-mail: <?= $email ?></p>
