@@ -3,36 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>exercicio07-formulario.php</title>
+    <title>Exercício 07 FORMULÁRIO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <div>
-        <h1>Simulação e manipulação de dados a partir de formulário</h1>
-        <hr>
-
-        <form action="" method="post">
-                <div class="mb-3">
-                    <label for="produto" class="form-label">Produto:</label>
-                    <input type="text" class="form-control" name="produto" id="produto">
-                </div>
-                <div class="mb-3">
-                    <label for="fabricante" class="form-label">Fabricante:</label>
-                    <input type="fabricante" class="form-control" name="fabricante" id="fabricante">
-                </div>
-                <div class="mb-3">
-                    <label for="preco" class="form-label">Preço:</label>
-                    <input type="preco" class="form-control" name="preco" id="preco">
-                </div>
-                <div class="mb-3">
-                    <label for="quantidade" class="form-label">Quantidade:</label>
-                    <input type="quantidade" class="form-control" name="quantidade" id="quantidade">
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-
+<div class="container">
+    <h1>Exercício 07 FORMULÁRIO</h1>
+    <hr>
+    <form action="exercicio07-processamento.php" method="post">
+        <!-- Produto -->
+        <div class="mb-3">
+            <label class="form-label" for="produto">Produto:</label>
+            <input class="form-control" type="text" name="produto" id="produto" required>
+        </div>
         
-    </div>
-    <?php 
-    
-    ?>
+        <!-- Fabricante -->
+        <div class="mb-3">
+            <label class="form-label" for="fabricante">Fabricante:</label>
+            <select name="fabricante" id="fabricante" class="form-select">
+                <option value="" selected disabled></option>
+                <option value="dell">Dell</option>
+                <option value="microsoft">Microsoft</option>
+                <option value="motorola">Motorola</option>
+                <option value="lg">LG</option>
+            </select>
+        </div>
+
+        <!-- Preço -->
+        <div class="mb-3">
+            <label class="form-label" for="preco">Preço:</label>
+            <input class="form-control" type="number" name="preco" id="preco" min="100" max="10000" step="0.01">
+        </div>
+        
+        <!-- Quantidade -->
+        <div class="mb-3">
+            <label class="form-label" for="quantidade">Quantidade:</label>
+            <input class="form-control" type="number" name="quantidade" id="idade" min="0" max="1000" step="1">
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Enviar dados
+        </button>
+
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
